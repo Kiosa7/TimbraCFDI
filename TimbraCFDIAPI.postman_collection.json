@@ -1,0 +1,790 @@
+{
+	"info": {
+		"_postman_id": "391d62c9-ec69-44d9-834b-aac2ff6f48cc",
+		"name": "API TimbraCFDI",
+		"description": "# 📄 Introducción\n\n**TimbraCFDI API** es un servicio **REST**ful desarrollado por ProFact y diseñado para aquellas personas o negocios que buscan una solución de **facturación electrónica** fácil de integrar a sus procesos o sistemas administrativos y que a la vez ofrezca una completa **gestión de sus CFDI.**\n\n## 🔖 Inicio rápido\n\n- Haz [clic acá](https://developers.timbracfdi33.mx/docs) para acceder a la base de conocimiento\n- Haz [clic acá](https://developers.timbracfdi33.mx/reference) para acceder a la documentación técnica de la API\n    \n\n---\n\n### **¿Necesitas ayuda?**\n\nComunícate con nosotros a través de los siguientes medios de contacto y con gusto atenderemos todas tus solicitudes.\n\nCorreo soporte: [soporte@profact.com.mx](https://mailto:soporte@profact.com.mx)\n\nTeléfonos de atención: 55 1663 2470 o al 800 839 3989",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11852366",
+		"_collection_link": "https://orange-crater-250186.postman.co/workspace/1eea7494-2f68-4de2-9d66-8a311820be73/collection/11852366-391d62c9-ec69-44d9-834b-aac2ff6f48cc?action=share&source=collection_link&creator=11852366"
+	},
+	"item": [
+		{
+			"name": "Funciones",
+			"item": [
+				{
+					"name": "RegistraEmisor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcEmisor\": \"IIA040805DZ4\",\r\n    \"Base64Cer\": \"MIIF1zCCA7+gAwIBAgIUMzAwMDEwMDAwMDA1MDAwMDM0MzMwDQYJKoZIhvcNAQELBQAwggErMQ8wDQYDVQQDDAZBQyBVQVQxLjAsBgNVBAoMJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExGjAYBgNVBAsMEVNBVC1JRVMgQXV0aG9yaXR5MSgwJgYJKoZIhvcNAQkBFhlvc2Nhci5tYXJ0aW5lekBzYXQuZ29iLm14MR0wGwYDVQQJDBQzcmEgY2VycmFkYSBkZSBjYWxpejEOMAwGA1UEEQwFMDYzNzAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBDSVVEQUQgREUgTUVYSUNPMREwDwYDVQQHDAhDT1lPQUNBTjERMA8GA1UELRMIMi41LjQuNDUxJTAjBgkqhkiG9w0BCQITFnJlc3BvbnNhYmxlOiBBQ0RNQS1TQVQwHhcNMjMwNTE4MTI0NjQ5WhcNMjcwNTE4MTI0NjQ5WjCB/jE0MDIGA1UEAxMrSU5ESVNUUklBIElMVU1JTkFET1JBIERFIEFMTUFDRU5FUyBTQSBERSBDVjE0MDIGA1UEKRMrSU5ESVNUUklBIElMVU1JTkFET1JBIERFIEFMTUFDRU5FUyBTQSBERSBDVjE0MDIGA1UEChMrSU5ESVNUUklBIElMVU1JTkFET1JBIERFIEFMTUFDRU5FUyBTQSBERSBDVjElMCMGA1UELRMcSUlBMDQwODA1RFo0IC8gVkFEQTgwMDkyN0RKMzEeMBwGA1UEBRMVIC8gVkFEQTgwMDkyN0hTUlNSTDA1MRMwEQYDVQQLEwpTdWN1cnNhbCAxMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz+hpn6PiooF9kZWedcyvkPexlLrncvsq2z51HEHG+JrugoGXikqvedT4NwoZLq4zCjJKZt+L9Rf6e1qD/zLlo7xHfjtNgkr90BZM1VSbpYOFmXHxqe4tjCfuQKYJOw/lGIoKjNUedRL6rkpwCkhPpO/zgLUA2Ro/j8H70k1NeAAs/u4RSvlhwYPCVh45z+wTg/5zcCNzS+OlUDfba7KEvogdxo0Xm98UrtB4yh7tzW48vv3QPvjZIpYiAZ3lzbbLFg4CDRGJav2tsWwwZBAtgrtreEfpR7H11uZ5i4cL7fhqnd6T5RPkwERaEh1s8p86ALZOXiD+A4lpG8U8o1PAXQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQsFAAOCAgEAoLh8DXWEAatoJJlZln9SFpMB6+2+u5+VABy+AltaAOoQ0H3U6RWI31UFfjGF7QJFRW9eiQCslzLPis6EuD5ltVoOIGxNntfYFVYh9rEs1dVRwTjBOThltPH5M+9a0BQFBNLyEMus834TGNUMZdE5ekiMC2paR7gItqitMIqTan1ByPbpulP9LK/G/Wj4OuP4gyYyGCWnGzKdcdOrk7AeF4RdY7gMqcpuJ6nU77UJ5YVDLy4z6wPRqCnttl0tkemAOT9ayyBHGgVZ9sBpssP702dQYjOtHBG24Zg2D3MnYW5F/rMDT++42QRj/y+k3LprF/WJn0PeuZZ+ZVTlmTfPgDpnInoFmjDgHMRaesFLjbbxDYprsbxuJ4j9uCkEjscP3T/mnswImfsFd6gx9kDLhaf5oosPsy7RbBYZWHsfnqTmnfOd7mG1bQ1nOsm9A0RvImWiiY9y4YXOV86tt7ORwrTR6Qn5YgpyiyJo/evSqyo43b1119QI7vBmRpdVFP1k+LHejCXjoA0eaipO981iijfnm6vzS0maaY1vTnfN84vRPPW7IE3LRMWOVs7/YekMgcvyDECusTpPj0u07GmHk7DlpLmehvYjotjiPkj30nZUnMNtp9yi4vx/qJiq04rpWVwo/Nc9xTM0Ua5maXM80oeFgqJO7yiAexT4dwM0xMU=\",\r\n    \"Base64Key\": \"MIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIAgEAAoIBAQACAggAMBQGCCqGSIb3DQMHBAgwggS/AgEAMASCBMh4EHl7aNSCaMDA1VlRoXCZ5UUmqErAbucoZQObOaLUEg4tpJ/Rdoy4JC/geoaQqbARs+QrXe7dL28DzHf8ucGyaWRK/7xQWQvwyttN4COBO50i6deD53T9wXIW7BeHxjXWNmVsMVzNQe35K1uclE5naq3BvcT5uAq8fJyBNrVqTo4kt1Qq6QBxZBTflUstYKriBE+3CYAqynozFzntrdqkRnSustYmCpCO/Ckos7NJBe6tPfXRkpV8DIRkOlQatN5wYe6UmH1F9rI9igf1r1gE6y8s1dbw62lQgttl5ts9bqbE9QCWvjmnn99fBgF7tEUMfR1m+mWpVPciOUKUqKkdKgg2CZsuvu9f/zrUBu3eSxmpNvTNF9Kgo1JRcBqPzA0HrzdMz4N4z2fRBdcjdKLfvig1mFL51mYJXBoYl0sUSrgKXBuzUYPkUkfBEupMd+W3Zz/mU/hAEMy/u5slAx3YZc7fth2FtpS7eCaBubCWjpWZDaLxJzKkAV2UZ0OVSpYW503eQTRKlx5AZJsnvK1Jw49OYHHu4eGL1qQ5P+9a1cXlrg3ZPrx7strqs9Lgdly3pB4nyk535jOM2Rpp8ZY8J29QT/Nrk4aGyKh/1DwzgcucdumIiNQw5bt73VkeJead5iH7kggKyWzu5SxJKlbyCbzW1FutTbLW+tQqJb+Yb1cTqBLEigHl9hpo4tn/+zGtkT7j1q+CzgYhDaR4EjGYdSdbMyQAy3fiwQQd9YH7hwe0AD+Uve7AR+gwkjO/q2Wdn3DGg6v6W7cUh85HETFYd+XFM/we1vDwwDDpBuGS3Wo5V71Fhd5Ev7WSUBdOokBXOsAZg5JUq160oe1zyue+xwOTJ08tPU9rjzaXVZBPyOC13yZViH3+UfTCpNJleE1oyqjwN4BDJxjgJzyK1dvzd/80T7qwp7Q69YIi2er9DUOdKMiYBNjcgtISTEDC2UCnxLgmGB7YToF6dSmAMhheqv3PUKkP1RgXFt39jdZKmp82hBiE/1NWYNr4kFI55okwouPKYGskvZFUZZTPcjRUxHLvBHKKlt/0DUYJ/A02d9ycrGuqFBW/rRixJRtDb20+GK+dLOoeRWmMnr0pOuHcTYJ7KV6Te6nkdFTFPrvt4HE/RwL/ilnyfGncnvUHjvjSpSstzCq3dkNoDj7KzS9fo2tmohYpUEYBpDwMEJmtAvBUgMlyALa5To7CiPT8TjdtAZJi2RwstvvCL2LwKhR4vDTuiMMseAnE8ugqI/1aEIHgOhZzDOVAPF19/phCQfGccSZF01MUT9H3YxxSEnMi6q/VMUdPkrCgyFzImDkr8m6jaBcHL4ErgOw6CIzdrI/5dkXAN9pAB1oWS12N+vUHdaqqmZx326oc8VvNxcmoixBwgKBADtU6aaobCXgLvXDe2Ex1xWdDyQJuBv7xX12aiCnI4irIWCMn/K80q0e/8FB1uN+IImdNqqBF8UsDRhrAhAT92JdQU0xEIapMFehlNK3HRjBbRnDJVcLEN+AHWw4pie0UOVW8X0IdI3zg2sRXLgTKjaGJKlZXNVf2iWOngyY7y+FNu/bM4+4bFjgi4vefuOHjDpg3TFUNXRQrgxwstmL+bk7NqEsqP1GSIFT9Uuj51RYXEzw=\",\r\n    \"Contrasena\": \"12345678a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/RegistraEmisor",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"RegistraEmisor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AceptaRechazaCFDI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcReceptor\": \"IIA040805DZ4\",\r\n    \"FolioUUID\": \"01dbdb7b-e70e-472c-9ff1-313145787018\",\r\n    \"Accion\": \"RECHAZA\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/AceptaRechazaCFDI",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"AceptaRechazaCFDI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AsignaTimbresEmisor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcEmisor\": \"CACX7605101P8\",\r\n    \"CantidadTimbres\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/AsignaTimbresEmisor",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"AsignaTimbresEmisor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelaCFDI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcEmisor\": \"IIA040805DZ4\",\r\n    \"FolioFiscal\": \"6bed62ac-bc5e-4fc7-be9a-eaa6f3e612c8\",\r\n    \"MotivoCancelacion\": \"03\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/CancelaCFDI",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"CancelaCFDI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelaCFDIAck",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcEmisor\": \"IIA040805DZ4\",\r\n    \"FolioFiscal\": \"380230be-e125-4bce-8ca4-e0a059389cc2\",\r\n    \"MotivoCancelacion\": \"03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/CancelaCFDIAck",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"CancelaCFDIAck"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelaCFDIAckExterno",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcEmisor\": \"IIA040805DZ4\",\r\n    \"FolioFiscal\": \"16cea322-1f29-4ebb-8537-17dcbf7583ce\",\r\n    \"MotivoCancelacion\": \"03\",\r\n    \"RfcReceptor\": \"BBA830831LJ2\",\r\n    \"Total\": \"23.20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/CancelaCFDIAckExterno",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"CancelaCFDIAckExterno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelaRetencion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcEmisor\": \"IIA040805DZ4\",\r\n    \"FolioFiscal\": \"aacab0c4-f295-4cdf-a8d3-c8960727815e\",\r\n    \"MotivoCancelacion\": \"03\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/CancelaRetencion",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"CancelaRetencion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TimbraCFDI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"XmlComprobanteBase64\": \"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGNmZGk6Q29tcHJvYmFudGUgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LnNhdC5nb2IubXgvY2ZkLzQgaHR0cDovL3d3dy5zYXQuZ29iLm14L3NpdGlvX2ludGVybmV0L2NmZC80L2NmZHY0MC54c2QiIFZlcnNpb249IjQuMCIgU2VyaWU9IlNlcmllIiBGb2xpbz0iRm9saW8iIEZlY2hhPSIyMDI0LTAxLTI4VDAwOjE5OjEwIiBDb25kaWNpb25lc0RlUGFnbz0iQ29uZGljaW9uZXNEZVBhZ28iIFN1YlRvdGFsPSIyMDAiIERlc2N1ZW50bz0iMSIgTW9uZWRhPSJBTUQiIFRpcG9DYW1iaW89IjEiIFRvdGFsPSIxOTguOTYiIFRpcG9EZUNvbXByb2JhbnRlPSJJIiBFeHBvcnRhY2lvbj0iMDEiIE1ldG9kb1BhZ289IlBQRCIgRm9ybWFQYWdvPSI5OSIgTHVnYXJFeHBlZGljaW9uPSIyMDAwMCIgeG1sbnM6Y2ZkaT0iaHR0cDovL3d3dy5zYXQuZ29iLm14L2NmZC80IiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj4KCTxjZmRpOkVtaXNvciBSZmM9IklJQTA0MDgwNURaNCIgTm9tYnJlPSJJTkRJU1RSSUEgSUxVTUlOQURPUkEgREUgQUxNQUNFTkVTIiBSZWdpbWVuRmlzY2FsPSI2MDEiLz4KCTxjZmRpOlJlY2VwdG9yIFJmYz0iUEZFMTQwMzEySVc4IiBOb21icmU9IlBST1ZFRURPUkVTIERFIEZBQ1RVUkFDSU9OIEVMRUNUUk9OSUNBIFkgU09GVFdBUkUiIERvbWljaWxpb0Zpc2NhbFJlY2VwdG9yPSI1MzEwMCIgUmVnaW1lbkZpc2NhbFJlY2VwdG9yPSI2MDEiIFVzb0NGREk9IkcwMSIvPgoJPGNmZGk6Q29uY2VwdG9zPgoJCTxjZmRpOkNvbmNlcHRvIENsYXZlUHJvZFNlcnY9IjUwMjExNTAzIiBDYW50aWRhZD0iMSIgQ2xhdmVVbmlkYWQ9Ikg4NyIgVW5pZGFkPSJQaWV6YSIgRGVzY3JpcGNpb249IkNpZ2Fycm9zIiBWYWxvclVuaXRhcmlvPSIyMDAuMDAiIERlc2N1ZW50bz0iMSIgSW1wb3J0ZT0iMjAwLjAwIiBPYmpldG9JbXA9IjAyIj4KCQkJPGNmZGk6SW1wdWVzdG9zPgoJCQkJPGNmZGk6VHJhc2xhZG9zPgoJCQkJCTxjZmRpOlRyYXNsYWRvIEJhc2U9IjEiIEltcG9ydGU9IjAuMTYiIEltcHVlc3RvPSIwMDIiIFRhc2FPQ3VvdGE9IjAuMTYwMDAwIiBUaXBvRmFjdG9yPSJUYXNhIi8+CgkJCQk8L2NmZGk6VHJhc2xhZG9zPgoJCQkJPGNmZGk6UmV0ZW5jaW9uZXM+CgkJCQkJPGNmZGk6UmV0ZW5jaW9uIEJhc2U9IjEiIEltcHVlc3RvPSIwMDEiIFRpcG9GYWN0b3I9IlRhc2EiIFRhc2FPQ3VvdGE9IjAuMTAwMDAwIiBJbXBvcnRlPSIwLjEwIi8+CgkJCQkJPGNmZGk6UmV0ZW5jaW9uIEJhc2U9IjEiIEltcHVlc3RvPSIwMDIiIFRpcG9GYWN0b3I9IlRhc2EiIFRhc2FPQ3VvdGE9IjAuMTA2NjY2IiBJbXBvcnRlPSIwLjEwIi8+CgkJCQk8L2NmZGk6UmV0ZW5jaW9uZXM+CgkJCTwvY2ZkaTpJbXB1ZXN0b3M+CgkJPC9jZmRpOkNvbmNlcHRvPgoJPC9jZmRpOkNvbmNlcHRvcz4KCTxjZmRpOkltcHVlc3RvcyBUb3RhbEltcHVlc3Rvc1JldGVuaWRvcz0iMC4yMCIgVG90YWxJbXB1ZXN0b3NUcmFzbGFkYWRvcz0iMC4xNiI+CgkJPGNmZGk6UmV0ZW5jaW9uZXM+CgkJCTxjZmRpOlJldGVuY2lvbiBJbXB1ZXN0bz0iMDAxIiBJbXBvcnRlPSIwLjEwIi8+CgkJCTxjZmRpOlJldGVuY2lvbiBJbXB1ZXN0bz0iMDAyIiBJbXBvcnRlPSIwLjEwIi8+CgkJPC9jZmRpOlJldGVuY2lvbmVzPgoJCTxjZmRpOlRyYXNsYWRvcz4KCQkJPGNmZGk6VHJhc2xhZG8gQmFzZT0iMSIgSW1wb3J0ZT0iMC4xNiIgSW1wdWVzdG89IjAwMiIgVGFzYU9DdW90YT0iMC4xNjAwMDAiIFRpcG9GYWN0b3I9IlRhc2EiLz4KCQk8L2NmZGk6VHJhc2xhZG9zPgoJPC9jZmRpOkltcHVlc3Rvcz4KPC9jZmRpOkNvbXByb2JhbnRlPg==\",\r\n    \"IdComprobante\": \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/TimbraCFDI",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"TimbraCFDI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultaEstatusSat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FolioFiscal\": \"380230be-e125-4bce-8ca4-e0a059389cc2\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ConsultaEstatusSat",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ConsultaEstatusSat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultaEstatusSatExterno",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FolioFiscal\": \"380230be-e125-4bce-8ca4-e0a059389cc2\",\r\n    \"RfcEmisor\": \"IIA040805DZ4\",\r\n    \"RfcReceptor\": \"EKU9003173C9\",\r\n    \"MontoTotalCfdi\": 10800.00\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ConsultaEstatusSatExterno",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ConsultaEstatusSatExterno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultaPeticionesPendientesCFDI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FolioFiscal\": \"ABC123456789\",\r\n    \"RfcReceptor\": \"IIA040805DZ4\",\r\n    \"MontoTotalCfdi\": 1500.50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ConsultaPeticionesPendientesCFDI",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ConsultaPeticionesPendientesCFDI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtieneCFDI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FolioFiscal\": \"1d277320-c6d5-4114-b5fd-dacbbae76ecb\",\r\n    \"RfcEmisor\": \"IIA040805DZ4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ObtieneCFDI",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ObtieneCFDI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtieneTimbresDisponibles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RfcEmisor\": \"CACX7605101P8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ObtieneTimbresDisponibles",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ObtieneTimbresDisponibles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultaCfdisRelacionados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FolioFiscal\": \"16e1cd18-b256-412f-b3fe-a1b64ce5214b\",\r\n    \"RfcReceptor\": \"IIA040805DZ4\",\r\n    \"RfcEmisor\": \"IIA040805DZ4\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ConsultaCfdisRelacionados",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ConsultaCfdisRelacionados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultaCfdisRelacionadosEmisor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FolioFiscal\": \"16e1cd18-b256-412f-b3fe-a1b64ce5214b\",\r\n    \"RfcReceptor\": \"IIA040805DZ4\",\r\n    \"RfcEmisor\": \"IIA040805DZ4\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ConsultaCfdisRelacionadosEmisor",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ConsultaCfdisRelacionadosEmisor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TimbraRetencion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"XmlComprobanteBase64\": \"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJldGVuY2lvbmVzOlJldGVuY2lvbmVzIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnJldGVuY2lvbmVzPSJodHRwOi8vd3d3LnNhdC5nb2IubXgvZXNxdWVtYXMvcmV0ZW5jaW9ucGFnby8yIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly93d3cuc2F0LmdvYi5teC9lc3F1ZW1hcy9yZXRlbmNpb25wYWdvLzIgaHR0cDovL3d3dy5zYXQuZ29iLm14L2VzcXVlbWFzL3JldGVuY2lvbnBhZ28vMi9yZXRlbmNpb25wYWdvdjIueHNkIGh0dHA6Ly93d3cuc2F0LmdvYi5teC9lc3F1ZW1hcy9yZXRlbmNpb25wYWdvLzEvaW50ZXJlc2VzIGh0dHA6Ly93d3cuc2F0LmdvYi5teC9lc3F1ZW1hcy9yZXRlbmNpb25wYWdvLzEvaW50ZXJlc2VzL2ludGVyZXNlcy54c2QiIFZlcnNpb249IjIuMCIgRm9saW9JbnQ9IkJBIiBGZWNoYUV4cD0iMjAyNC0wMS0yOFQxMTozODowMiIgTHVnYXJFeHBSZXRlbmM9IjMyNjkwIiBDdmVSZXRlbmM9IjE2Ij4KICA8cmV0ZW5jaW9uZXM6RW1pc29yIFJmY0U9IklJQTA0MDgwNURaNCIgTm9tRGVuUmF6U29jRT0iSU5ESVNUUklBIElMVU1JTkFET1JBIERFIEFMTUFDRU5FUyIgUmVnaW1lbkZpc2NhbEU9IjYyNiIgLz4KICA8cmV0ZW5jaW9uZXM6UmVjZXB0b3IgTmFjaW9uYWxpZGFkUj0iTmFjaW9uYWwiPgogICAgPHJldGVuY2lvbmVzOk5hY2lvbmFsIFJmY1I9IkVLVTkwMDMxNzNDOSIgTm9tRGVuUmF6U29jUj0iRVNDVUVMQSBLRU1QRVIgVVJHQVRFIiBEb21pY2lsaW9GaXNjYWxSPSI0MjUwMSIgLz4KICA8L3JldGVuY2lvbmVzOlJlY2VwdG9yPgogIDxyZXRlbmNpb25lczpQZXJpb2RvIE1lc0luaT0iMDEiIE1lc0Zpbj0iMDEiIEVqZXJjaWNpbz0iMjAyNCIgLz4KICA8cmV0ZW5jaW9uZXM6VG90YWxlcyBNb250b1RvdE9wZXJhY2lvbj0iMi4yNSIgTW9udG9Ub3RHcmF2PSIyLjIiIE1vbnRvVG90RXhlbnQ9IjAuMDUiIE1vbnRvVG90UmV0PSIwLjA0Ij4KICAgIDxyZXRlbmNpb25lczpJbXBSZXRlbmlkb3MgQmFzZVJldD0iMC4wMiIgSW1wdWVzdG9SZXQ9IjAwMSIgTW9udG9SZXQ9IjAuMDQiIFRpcG9QYWdvUmV0PSIwNCIgLz4KICA8L3JldGVuY2lvbmVzOlRvdGFsZXM+CiAgPHJldGVuY2lvbmVzOkNvbXBsZW1lbnRvPgogICAgPGludGVyZXNlczpJbnRlcmVzZXMgeG1sbnM6aW50ZXJlc2VzPSJodHRwOi8vd3d3LnNhdC5nb2IubXgvZXNxdWVtYXMvcmV0ZW5jaW9ucGFnby8xL2ludGVyZXNlcyIgVmVyc2lvbj0iMS4wIiBTaXN0RmluYW5jaWVybz0iTk8iIFJldGlyb0FPUkVTUmV0SW50PSJTSSIgT3BlckZpbmFuY0Rlcml2YWQ9IlNJIiBNb250SW50Tm9taW5hbD0iMCIgTW9udEludFJlYWw9IjAiIFBlcmRpZGE9IjAiIC8+CiAgPC9yZXRlbmNpb25lczpDb21wbGVtZW50bz4KPC9yZXRlbmNpb25lczpSZXRlbmNpb25lcz4=\",\r\n  \"IdComprobante\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/TimbraRetencion",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"TimbraRetencion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtieneRetencion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mvpNUXmQfK8=|",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"RfcEmisor\": \"IIA040805DZ4\",\r\n  \"FolioFiscal\": \"db0e4c65-4035-4981-8643-ee1743d347f5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pruebas.timbracfdi33.mx:1444/api/V2/Timbrado/ObtieneRetencion",
+							"protocol": "https",
+							"host": [
+								"pruebas",
+								"timbracfdi33",
+								"mx"
+							],
+							"port": "1444",
+							"path": [
+								"api",
+								"V2",
+								"Timbrado",
+								"ObtieneRetencion"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}
